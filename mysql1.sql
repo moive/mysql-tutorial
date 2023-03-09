@@ -202,3 +202,7 @@ VALUES
     (2018,122,"2019-04-10",40),
     (3249,110,"2019-04-10",15)    
     ;
+
+
+-- linea comando CMD para hacer backup
+'mysqldump -u root -p --databases salvadora > E:\MOISES\tutorials\mysql-tutorial\backup\salvadora_bk.sql'
