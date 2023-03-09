@@ -206,3 +206,11 @@ VALUES
 
 -- linea comando CMD para hacer backup
 'mysqldump -u root -p --databases salvadora > E:\MOISES\tutorials\mysql-tutorial\backup\salvadora_bk.sql'
+
+-- importar backup con linea de comando, despues de haber ingresado la credencial de mysql
+'source E:\MOISES\tutorials\mysql-tutorial\backup\salvadora_bk.sql'
+
+-- SELECT
+
+SELECT NOMBRE, APELLIDO, TELEFONO FROM CLIENTE;
+SELECT * FROM salvadora.cliente;
