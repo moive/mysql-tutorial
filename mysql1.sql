@@ -219,3 +219,10 @@ SELECT * FROM salvadora.cliente;
 -- use where
 SELECT * FROM cliente WHERE APELLIDO = 'CRUZ';
 SELECT * FROM PRODUCTO WHERE MARCA = 'continental' AND PRECIO > 2000;
+
+-- usando LIKE %: cualquier caracteres(plural) _ : cualquier caracter(singular)
+SELECT NOMBRE,APELLIDO FROM CLIENTE WHERE APELLIDO LIKE "C%"; -- lista los apellidos que empiezan con C
+SELECT * FROM PROVEEDOR WHERE ID_PROVEEDOR LIKE "%0%"; -- lista los ID_PROVEEDOR que tenga algun 0 cero
+SELECT * FROM CLIENTE WHERE CI LIKE "18%"; -- lista los CI  que empiezan con 18
+SELECT * FROM CLIENTE WHERE CI NOT LIKE "18%"; --list loc CI que no empiezan con 18
+SELECT * FROM PRODUCTO WHERE COD_PRODUCTO LIKE "10_"; --lista los productos que tienen el cod_prod: 10_
