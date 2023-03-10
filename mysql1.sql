@@ -306,3 +306,35 @@ SELECT NOMBRE,MARCA,PRECIO FROM WHERE PRECIO = (SELECT MIN(PRECIO) FROM PRODUCTO
 
 -- seleccionar todos los clientes que no tengan celular
 SELECT NOMBRE, APELLIDO, TELEFONO FROM CLIENTE WHERE TELEFONO NOT LIKE "6%" AND TELEFONO NOT LIKE "7%";
+
+--create database PRUEBA_DB
+CREATE DATABASE PRUEBA_DB;
+
+-- create table User
+CREATE TABLE Usuario(
+    CI INT(13) PRIMARY KEY,
+    COD_PRODUCTO INT(13),
+    FECHA_COMPRA DATE,
+    CANTIDAD INT(15)
+);
+
+-- create table Services
+CREATE TABLE Servicios(
+    CI INT(13) PRIMARY KEY,
+    COD_PRODUCTO INT(13),
+    FECHA_COMPRA DATE,
+    CANTIDAD INT(15),
+    foreign key (COD_PRODUCTO) references PRODUCTO (COD_PRODUCTO)
+);
+
+--rename table Usuario
+ALTER TABLE USUARIO RENAME CLIENTE;
+
+-- eliminar la columna cantidad
+ALTER TABLE CLIENTE DROP COLUMN CANTIDAD;
+
+-- eliminar la columna stock, color
+ALTER TABLE PRODUCTO DROP COLUMN STOCK, DROP COLUMN COLOR;
+
+-- eliminar primary key de la tabla servicios
+ALTER TABLE SERVICIOS DROP PRIMARY KEY;
