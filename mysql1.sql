@@ -285,3 +285,24 @@ SELECT NOMBRE FROM PRODUCTO WHERE MARCA = 'continental' ORDER BY NOMBRE DESC;
 
 -- obtener los productos por marca ordenados por precio de manera descendente
 SELECT COD_PRODUCTO, NOMBRE, MARCA,PRECIO FROM PRODUCTO WHERE MARCA = 'continental' ORDER BY PRECIO DESC;
+
+-- EXERCICES
+
+-- obtener los nombres de clientes de la empresa salvadora;
+SELECT NOMBRES FROM CLIENTE;
+
+-- obtener los nombres, marca y precio de los productos de la empresa salvadora;
+SELECT NOMBRE,MARCA,PRECIO FROM PRODUCTO;
+
+-- obtener todo los datos de los productos cuyo precio este entre 2000 y 3000
+SELECT * FROM PRODUCTO WHERE PRECIO BETWEEN 2000 AND 3000;
+SELECT * FROM PRODUCTO WHERE PRECIO >=2000 AND PRECIO <=3000;
+
+-- obtener el número de productos cuyo precio sea igual a 1250
+SELECT COUNT(*) FROM PRODUCTO WHERE PRECIO = 1250;
+
+-- obtener el nombre, marca y el precio del producto mas barato.
+SELECT NOMBRE,MARCA,PRECIO FROM WHERE PRECIO = (SELECT MIN(PRECIO) FROM PRODUCTO);
+
+-- seleccionar todos los clientes que no tengan celular
+SELECT NOMBRE, APELLIDO, TELEFONO FROM CLIENTE WHERE TELEFONO NOT LIKE "6%" AND TELEFONO NOT LIKE "7%";
