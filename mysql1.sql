@@ -276,3 +276,12 @@ SELECT COLOR, COUNT(*) FROM PRODUCTO GROUP BY COLOR HAVING COUNT(*) < 4;
 
 -- ordenar por color donde el precio sea el mínimo y menor a 2000;
 SELECT COLOR, MIN(PRECIO) FROM PRODUCTO GROUP BY COLOR HAVING MIN(PRECIO) < 2000;
+
+-- seleccionar por marca 'continental' y ordernarlo descendente
+SELECT * FROM PRODUCTO WHERE MARCA = "continental" ORDER BY COD_PRODUCTO DESC;
+
+-- seleccionar los productos por marca 'continental' y ordernarlos de manera descendente
+SELECT NOMBRE FROM PRODUCTO WHERE MARCA = 'continental' ORDER BY NOMBRE DESC;
+
+-- obtener los productos por marca ordenados por precio de manera descendente
+SELECT COD_PRODUCTO, NOMBRE, MARCA,PRECIO FROM PRODUCTO WHERE MARCA = 'continental' ORDER BY PRECIO DESC;
