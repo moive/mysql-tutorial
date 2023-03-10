@@ -250,3 +250,20 @@ SELECT MIN(PRECIO) FROM PRODUCTO;
 
 -- obteniendo el valor máximo con MAX()
 SELECT MAX(PRECIO) FROM PRODUCTO;
+
+--sumar agrupando por marca
+SELECT MARCA, SUM(PRECIO) FROM PRODUCTO GROUP BY MARCA;
+
+--sumar agrupando por NOMBRE
+SELECT NOMBRE, SUM(PRECIO) FROM PRODUCTO GROUP BY NOMBRE;
+
+-- contando por marca
+SELECT MARCA, COUNT(MARCA) FROM PRODUCTO GROUP BY (MARCA);
+
+-- contar por marca pero, que sean de color negro
+SELECT MARCA, COUNT(*) FROM PRODUCTO
+    WHERE COLOR = 'negro'
+    GROUP BY MARCA;
+
+-- obtener el valor minimo por color
+SELECT COLOR, MIN(PRECIO) FROM PRODUCTO GROUP BY COLOR;
