@@ -267,3 +267,12 @@ SELECT MARCA, COUNT(*) FROM PRODUCTO
 
 -- obtener el valor minimo por color
 SELECT COLOR, MIN(PRECIO) FROM PRODUCTO GROUP BY COLOR;
+
+-- obtener las marcas cuya suma de stock sea mayor a 30 -- HAVING FUNCTION() devuelve true o false
+SELECT MARCA, SUM(STOCK) FROM PRODUCTO GROUP BY MARCA HAVING SUM(STOCK) > 30;
+
+-- obtener la cantidad de colores que sean menores a 4
+SELECT COLOR, COUNT(*) FROM PRODUCTO GROUP BY COLOR HAVING COUNT(*) < 4;
+
+-- ordenar por color donde el precio sea el mínimo y menor a 2000;
+SELECT COLOR, MIN(PRECIO) FROM PRODUCTO GROUP BY COLOR HAVING MIN(PRECIO) < 2000;
