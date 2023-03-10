@@ -238,3 +238,15 @@ SELECT * FROM PRODUCTO WHERE PRECIO IN (1800,2300,3000);
 
 --usando IN para filtrar string
 SELECT NOMBRE,MARCA,COLOR FROM PRODUCTO WHERE COLOR IN('GRIS','ROJO','VERDE');
+
+--obteniendo la suma del precio total con la función SUM
+SELECT SUM(PRECIO) FROM PRODUCTO;
+
+-- contando el total de elementos con la sentencia COUNT
+SELECT COUNT(ID_PROVEEDOR) FROM PROVEEDOR;
+
+-- obteniendo el valor mínimo con MIN()
+SELECT MIN(PRECIO) FROM PRODUCTO;
+
+-- obteniendo el valor máximo con MAX()
+SELECT MAX(PRECIO) FROM PRODUCTO;
