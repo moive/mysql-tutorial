@@ -9,3 +9,15 @@ CREATE TABLE USUARIO(
     GENERO ENUM("MASCULINO","FEMENINO") NOT NULL, -- solo permite MASCULINO y FEMENINO
     TIPO_USUARIO ENUM("GRATIS","DE_PAGO") NOT NULL DEFAULT "GRATIS"
 );
+
+
+-- importa base de datos CINE
+-- crear database CINE
+CREATE DATABASE CINE;
+
+-- seleccionar database CINE
+USE CINE;
+
+-- en terminal escribir source <ruta del sql a importa>
+source C:\Users\USER\Desktop\BACKUP-CINE\cine_BK.sql
+
