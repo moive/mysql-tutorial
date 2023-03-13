@@ -21,3 +21,40 @@ USE CINE;
 -- en terminal escribir source <ruta del sql a importa>
 source C:\Users\USER\Desktop\BACKUP-CINE\cine_BK.sql
 
+-- desc = describe
+DESC EMPLEADO;
+
+-- para crear una nueva tabla con la estrcutura de una ya existente
+-- LIMIT 0 para crear tabla vacía
+CREATE TABLE EMPLEADOS_ANTIGUOS SELECT * FROM EMPLEADO LIMIT 0;
+
+--insertar data en tabla empleados_antiguos
+insert into empleados_antiguos values ("EMP0001","John McTiernan","EEUU");
+insert into empleados_antiguos values ("EMP0002","Bruce Willis","Aleman");
+insert into empleados_antiguos values ("EMP0003","Alan Rickman","Reino Unido");
+insert into empleados_antiguos values ("EMP0004","Bonnie Bedelia","EEUU");
+insert into empleados_antiguos values ("EMP0005","William Atherton","EEUU");
+insert into empleados_antiguos values ("EMP0006","Vin Diesel","EEUU");
+insert into empleados_antiguos values ("EMP0007","Dwayne Johnson","EEUU");
+insert into empleados_antiguos values ("EMP0008","Michelle Rodriguez","EEUU");
+insert into empleados_antiguos values ("EMP0009","Kurt Russell","EEUU");
+insert into empleados_antiguos values ("EMP0010","Gary Gray","EEUU");
+insert into empleados_antiguos values ("EMP0011","Leonardo DiCaprio","EEUU");      
+insert into empleados_antiguos values ("EMP0012","Kate Winslet","Reino Unido");
+insert into empleados_antiguos values ("EMP0013","Nicole Kidman","EEUU");
+insert into empleados_antiguos values ("EMP0014","Fionnula Flanagan","Irlanda");
+insert into empleados_antiguos values ("EMP0015","Patrick Wilson","EEUU");
+insert into empleados_antiguos values ("EMP0016","Vera Farmiga","EEUU");
+insert into empleados_antiguos values ("EMP0017","Paolo Agazi","Bolivia");
+insert into empleados_antiguos values ("EMP0018","Gerardo Suarez","Bolivia");        
+insert into empleados_antiguos values ("EMP0019","Pablo Echarri","Argentina");
+insert into empleados_antiguos values ("EMP0020","Fernando Arze","Bolivia");
+insert into empleados_antiguos values ("EMP0021","Cristian Mercado","Bolivia");
+insert into empleados_antiguos values ("EMP0022","Gory Patiño","Bolivia");   
+
+--verificar los datos agregados
+SELECT * FROM EMPLEADOS_ANTIGUOS;
+
+-- realizar backup de base de datos cine
+--introducir en una nueva terminal la siguiente instrucción
+'mysqldump -u root -p cine > E:\MOISES\tutorials\mysql-tutorial\backup\cine_bk.sql'
