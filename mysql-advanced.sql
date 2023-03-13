@@ -58,3 +58,18 @@ SELECT * FROM EMPLEADOS_ANTIGUOS;
 -- realizar backup de base de datos cine
 --introducir en una nueva terminal la siguiente instrucción
 'mysqldump -u root -p cine > E:\MOISES\tutorials\mysql-tutorial\backup\cine_bk.sql'
+
+-- EXERCICES;
+-- eliminar db cine
+-- importar bd cine-copia.sql
+-- Desplegar nombre y edad de todas las personas que tienen mayor a 35 años;
+SELECT NOMBRE, EDAD FROM PERSONA WHERE EDAD > 35;
+
+-- Desplegar título original, genero y clasificacion de todas las películas 'apta todo publico'
+SELECT TITULO_ORIGINAL, GENERO, CLASIFICACION FROM PELICULA WHERE CLASIFICACION = 'Apta todo publico';
+
+-- Desplegar en ordern descendente por edad el nombre y edad de las personas
+SELECT NOMBRE, EDAD FROM PERSONA ORDER BY EDAD DESC;
+
+-- Obtener la cantidad de empleados por pais
+SELECT NACIONALIDAD, COUNT(*) FROM EMPLEADO GROUP BY NACIONALIDAD;
