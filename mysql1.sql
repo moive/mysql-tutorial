@@ -338,3 +338,25 @@ ALTER TABLE PRODUCTO DROP COLUMN STOCK, DROP COLUMN COLOR;
 
 -- eliminar primary key de la tabla servicios
 ALTER TABLE SERVICIOS DROP PRIMARY KEY;
+
+-- eliminar llave foranea de la tabla servicios
+ALTER TABLE SERVICIOS DROP FOREIGN KEY servicios_ibfk_1;
+
+-- agregar campo TELEFONO
+ALTER TABLE CLIENTE ADD TELEFONO INT(10);
+
+-- agregar campo NOMBRE después del campo CI
+ALTER TABLE CLIENTE ADD NOMBRE VARCHAR(15) AFTER CI;
+
+-- agregar al inicio el campo CODIGO
+ALTER TABLE CLIENTE ADD CODIGO INT(5) FIRST;
+
+-- cambiar el campo TELEFONO por CELULAR
+ALTER TABLE CLIENTE CHANGE TELEFONO CELULAR INT(10);
+
+
+-- agregar el campo MODELO a producto
+ALTER TABLE PRODUCTO  ADD MODELO VARCHAR(22);
+
+--modificar el tipo de un campo;
+ALTER TABLE PRODUCTO MODIFY MODELO INT(8) NOT NULL;
