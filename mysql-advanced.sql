@@ -73,3 +73,64 @@ SELECT NOMBRE, EDAD FROM PERSONA ORDER BY EDAD DESC;
 
 -- Obtener la cantidad de empleados por pais
 SELECT NACIONALIDAD, COUNT(*) FROM EMPLEADO GROUP BY NACIONALIDAD;
+
+-- DATABASE ITUNES
+CREATE DATABASE ITUNES;
+
+-- CREATE TABLES
+create table musica_rock(
+    cod_music varchar(6) primary key,
+    titulo varchar(40) not null,
+    artista varchar(30) not null,
+    album varchar(40) not null
+);
+
+create table musica_pop(
+    cod_music varchar(6) primary key,
+    titulo varchar(40) not null,
+    artista varchar(30) not null,
+    album varchar(40) not null
+);
+
+-- INSERT DATA
+insert into musica_rock values ('mr001','Psychosocial','Slipknot','All Hope Is Gone');
+insert into musica_rock values ('mr002','In the End','Linkin Park','Hybrid Theory');
+insert into musica_rock values ('mr003','Welcome To The Jungle','Guns N Roses','Appetite for Destruction');
+insert into musica_rock values ('mr004','Battery','Metallica','Master of Puppets');
+insert into musica_rock values ('mr005','Whole Lotta Love','Led Zeppelin','Led Zeppelin II');
+insert into musica_rock values ('mr006','Panama','Van Halen','1984s');
+
+
+insert into musica_pop values ('mp001','Billie Jean','Michael Jackson','Thriller');
+insert into musica_pop values ('mp002','Look What You Made Me Do','Taylor Swift','Reputation');
+insert into musica_pop values ('mp003','I Feel It Coming','The Weeknd','Starboy');
+insert into musica_pop values ('mp004','Love You like a Love Song','Selena Gomez','When the Sun Goes Down');
+insert into musica_pop values ('mp005','Poker Face','Lady Gaga','The Fame');
+insert into musica_pop values ('mp006','Boyfriend','Justin Bieber','Believe');
+
+
+insert into musica_rock values ('mr007','crawling','Linkin Park','Hybrid Theory');
+insert into musica_rock values ('mr008','Sweet Child O Mine','Guns N Roses','Appetite for Destruction');
+insert into musica_pop values ('mp007','Paparazzi','Lady Gaga','The Fame');
+insert into musica_pop values ('mp008','The Girl Is Mine','Michael Jackson','Thriller');
+
+-- UNIR DOS TABLAS SIMILARES
+
+SELECT * FROM MUSICA_POP
+UNION
+SELECT * FROM MUSICA_ROCK;
+
+
+-- Seleccionar todas las canciones y sus autores correspondientes;
+SELECT TITULO,ARTISTA FROM MUSICA_POP
+UNION
+SELECT TITULO,ARTISTA FROM MUSICA_ROCK;
+
+-- Seleccionar todos los artistas con sus albunes y sus autores correspondientes
+-- No se consideran valores repetidos
+-- si hay data repedida solo solo mostrará uno de ellos
+SELECT ARTISTA,ALBUM FROM MUSICA_POP
+UNION
+ALL -- si quieres mostrar todos añadir ALL después de UNION
+SELECT ARTISTA, ALBUM FROM MUSICA_ROCK;
+
