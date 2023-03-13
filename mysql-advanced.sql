@@ -134,3 +134,34 @@ UNION
 ALL -- si quieres mostrar todos añadir ALL después de UNION
 SELECT ARTISTA, ALBUM FROM MUSICA_ROCK;
 
+-- Seleccionar los albunes de todos los artistas donde solo se tomará en cuenta los álbunes pop
+SELECT ALBUM, ARTISTA FROM MUSICA_POP
+EXCEPT
+SELECT ALBUM, ARTISTA FROM MUSICA_ROCK;
+
+-- Otra forma si en caso EXCEPT no funciona
+SELECT ALBUM, ARTISTA FROM MUSICA_POP
+WHERE ALBUM NOT IN(SELECT ALBUM FROM MUSICA_ROCK);
+
+-- Crear tabla datos_aritista
+create table datos_artista(
+    cod_artist varchar(6) primary key,
+    artista  varchar(30) not null,
+    disquera varchar(30) not null,
+    album varchar(40) not null
+);
+
+--insertando data a la tabla datos_artista
+insert into datos_artista values ('art001','Linkin Park','Universal Music Group','Hybrid Theory');
+insert into datos_artista values ('art002','Guns N Roses','Sony Music Entertainment','Appetite for Destruction');
+insert into datos_artista values ('art003','Metallica','Warner Music Group','Master of Puppets');
+insert into datos_artista values ('art004','Van Halen','YG Entertainment','1984s');
+insert into datos_artista values ('art005','Michael Jackson','Universal Music Group','Thriller');
+insert into datos_artista values ('art006','Taylor Swift','Sony Music Entertainment','Reputation');
+insert into datos_artista values ('art007','The Weeknd','Universal Music Group','Starboy');
+insert into datos_artista values ('art008','Selena Gomez','Universal Music Group','When the Sun Goes Down');
+
+-- Verificar las disqueras que trabajan con el género rock
+SELECT ARTISTA, ALBUM FROM DATOS_ARTISTA
+EXCEPT
+SELECT ARTISTA, ALBUM FROM MUSICA_POP;
