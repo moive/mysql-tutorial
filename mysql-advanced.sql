@@ -195,3 +195,21 @@ ON E.CODIGO_EMP = T.CODIGO_EMP; -- ON en lugar de WHERE en cartesian product
 SELECT U.ID_USUARIO,U.USERNAME,U.PASSWORD,T.FECHA_RENOVACION
 FROM USUARIO U INNER JOIN PREMIUM_TC T
 ON U.ID_USUARIO = T.ID_USUARIO;
+
+-- LEFT JOIN damos priordad a la tabla de la izquierda
+-- RIGHT JOIN damos prioridad a la tabla de la derecha
+
+-- eliminar database spotify
+-- crear de nuevo database spotify
+-- importar data
+'source C:\Users\USER\Desktop\BACKUP-CINE\copia2_spotify.sql'
+
+-- Seleccionar e id_album, titulo del album, titulo de la cancion y duracion de la cancion.
+SELECT A.ID_ALBUM,A.TITULO,C.TITULO,C.DURACION
+FROM ALBUM A LEFT JOIN CANCION C
+ON A.ID_ALBUM = C.ID_ALBUM;
+
+-- usando   RIGHT JOIN
+SELECT A.ID_ALBUM,A.TITULO,C.TITULO,C.DURACION
+FROM ALBUM A RIGHT JOIN CANCION C
+ON A.ID_ALBUM = C.ID_ALBUM;
