@@ -168,3 +168,30 @@ SELECT ARTISTA, ALBUM FROM MUSICA_POP;
 
 -- Obtener la cantidad de canciones pop por album, colocar un alias para clasificarlo
 SELECT ARTISTA, ALBUM, COUNT(*) AS '# DE CANCIONES' FROM MUSICA_POP GROUP BY ALBUM;
+
+-- Desplegar los empleados (nombre y nacionalidad) y las películas donde trabajaron (identificador de pélicula) utilizando el producto cartesiano
+
+SELECT E.NOMBRE_EMP, E.NACIONALIDAD, T.IDENTIFICADOR
+FROM EMPLEADO E,TRABAJA T
+WHERE E.CODIGO_EMP = T.CODIGO_EMP;
+
+--create database spotify
+CREATE DATABASE SPOTIFY;
+USE SPOTIFY;
+'source C:\Users\USER\Desktop\BACKUP-CINE\copia_spotify.sql'
+
+-- Desplegar el id_usuario, username, password y fecha de renovacion de la tarjeta paypal de los usuarios premium que pagan con paypal.
+SELECT U.ID_USUARIO, U.USERNAME, U.PASSWORD, P.FECHA_RENOVACION
+FROM USUARIO U, PREMIUM_PP P
+WHERE U.ID_USUARIO = P.ID_USUARIO;
+
+
+-- Desplegar los empleados (nombre y nacionalidad) y las películas donde trabajaron (indentificador de película) UTILIZANDO INNER JOIN.
+SELECT E.NOMBRE_EMP,E.NACIONALIDAD,T.IDENTIFICADOR
+FROM EMPLEADO E INNER JOIN TRABAJA T -- INNER JOIN en lugar de la ','
+ON E.CODIGO_EMP = T.CODIGO_EMP; -- ON en lugar de WHERE en cartesian product
+
+-- Desplegar el id_usuario, username, password y fecha de renovacion de la tarjeta de credito de los usuarios premium que pagan con tarjeta de credito usando INNER JOIN.
+SELECT U.ID_USUARIO,U.USERNAME,U.PASSWORD,T.FECHA_RENOVACION
+FROM USUARIO U INNER JOIN PREMIUM_TC T
+ON U.ID_USUARIO = T.ID_USUARIO;
