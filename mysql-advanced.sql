@@ -165,3 +165,6 @@ insert into datos_artista values ('art008','Selena Gomez','Universal Music Group
 SELECT ARTISTA, ALBUM FROM DATOS_ARTISTA
 EXCEPT
 SELECT ARTISTA, ALBUM FROM MUSICA_POP;
+
+-- Obtener la cantidad de canciones pop por album, colocar un alias para clasificarlo
+SELECT ARTISTA, ALBUM, COUNT(*) AS '# DE CANCIONES' FROM MUSICA_POP GROUP BY ALBUM;
