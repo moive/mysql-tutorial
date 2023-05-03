@@ -52,3 +52,10 @@ SELECT * FROM language WHERE name <> 'German';
 SELECT description, release_year FROM film LIMIT 10;
 SELECT * FROM film WHERE title = 'IMPACT ALADDIN';
 SELECT * FROM payment WHERE amount > 0.99 LIMIT 100;
+
+-- AND - OR - NOT
+SELECT * FROM category WHERE NOT name='Action';
+SELECT DISTINCT(RATING) FROM film WHERE NOT rating = 'PG';
+
+SELECT * FROM payment WHERE customer_id = 36 AND amount > 0.99 AND staff_id = 1;
+SELECT * FROM rental WHERE NOT staff_id = 1 AND customer_id > 250 AND inventory_id < 100;
