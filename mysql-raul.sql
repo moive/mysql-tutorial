@@ -59,3 +59,16 @@ SELECT DISTINCT(RATING) FROM film WHERE NOT rating = 'PG';
 
 SELECT * FROM payment WHERE customer_id = 36 AND amount > 0.99 AND staff_id = 1;
 SELECT * FROM rental WHERE NOT staff_id = 1 AND customer_id > 250 AND inventory_id < 100;
+
+-- IN
+-- SELECT first_name FROM customer WHERE first_name = 'MARY' OR first_name = 'PATRICIA';
+SELECT first_name FROM customer WHERE first_name IN('MARY','PATRICIA');
+
+SELECT title FROM film WHERE special_features IN('Trailers','Deleted Scenes');
+SELECT title FROM film WHERE special_features IN('Trailers','Deleted Scenes') AND rating IN('G','NC-17');
+SELECT title FROM film WHERE special_features IN('Trailers','Deleted Scenes') AND rating IN('G','NC-17') AND length > 100;
+
+SELECT * FROM category WHERE name NOT IN ('Action','Animation','Children');
+
+SELECT * FROM film_text WHERE title IN ('ZORRO ARK', 'VIRGIN DAISY', 'UNITED PILOT');
+SELECT * FROM city WHERE city IN ('Chiayi', 'Dongying', 'Fukuyama', 'Kilis');
