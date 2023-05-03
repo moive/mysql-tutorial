@@ -37,3 +37,18 @@ SELECT * FROM country ORDER BY country DESC;
 select distinct(amount) from payment order by amount asc;
 select min(amount) from payment;
 select max(amount) from payment;
+
+-- select where
+SELECT * FROM actor WHERE first_name = 'DAN';
+SELECT * FROM city WHERE country_id = 102;
+SELECT * FROM customer WHERE store_id = 1;
+
+SELECT * FROM inventory WHERE film_id < 50;
+SELECT DISTINCT amount FROM payment WHERE amount<3;
+
+SELECT * FROM language WHERE name <> 'German';
+
+--exercices select
+SELECT description, release_year FROM film LIMIT 10;
+SELECT * FROM film WHERE title = 'IMPACT ALADDIN';
+SELECT * FROM payment WHERE amount > 0.99 LIMIT 100;
