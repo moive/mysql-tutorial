@@ -87,3 +87,11 @@ SELECT * FROM payment WHERE (amount BETWEEN 2.99 AND 4.99) AND (staff_id = 2) AN
 
 SELECT * FROM address WHERE city_id BETWEEN 300 AND 350;
 SELECT * FROM film WHERE (rental_rate BETWEEN 0.99 AND 2.99) AND (length <= 50) AND (replacement_cost < 20);
+
+-- LIKE
+SELECT * FROM actor WHERE first_name LIKE 'A%' AND last_name LIKE 'B%';
+SELECT * FROM actor WHERE first_name LIKE '%A' AND last_name LIKE '%N';
+
+SELECT * FROM actor WHERE first_name LIKE '%NE%' AND last_name LIKE '%RO%';
+SELECT * FROM actor WHERE first_name LIKE 'C%N' AND last_name LIKE 'G%';
+SELECT * FROM film WHERE release_year = 2006 AND title LIKE 'ALI%';
