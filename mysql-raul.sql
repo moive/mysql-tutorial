@@ -95,3 +95,56 @@ SELECT * FROM actor WHERE first_name LIKE '%A' AND last_name LIKE '%N';
 SELECT * FROM actor WHERE first_name LIKE '%NE%' AND last_name LIKE '%RO%';
 SELECT * FROM actor WHERE first_name LIKE 'C%N' AND last_name LIKE 'G%';
 SELECT * FROM film WHERE release_year = 2006 AND title LIKE 'ALI%';
+
+-- INNER JOIN
+SELECT * FROM film F
+INNER JOIN language L ON(F.language_id = L.language_id);
+
+-- cleaning code
+SELECT F.title, f.description, f.release_year, L.name FROM film F
+INNER JOIN language L ON(F.language_id = L.language_id);
+
+SELECT A.address as Address, C.city as City FROM address A INNER JOIN city C ON(A.city_id=C.city_id);
+
+-- RIGHT JOIN
+SELECT 
+c.customer_id,
+c.first_name,
+c.last_name,
+a.actor_id,
+a.first_name,
+a.last_name
+FROM customer c RIGHT JOIN actor a ON (c.last_name = a.last_name);
+
+-- LEFT JOIN
+SELECT 
+c.customer_id,
+c.first_name,
+c.last_name,
+a.actor_id,
+a.first_name,
+a.last_name
+FROM customer c LEFT JOIN actor a ON (c.last_name = a.last_name);
+
+-- Consulta la tabla address de la base de datos sakila.
+-- Realiza un INNER JOIN con las tablas city y country
+-- Mostrar las columnas address, city, country
+
+SELECT a.address, c.city, co.country FROM address a 
+INNER JOIN city c ON (a.city_id = c.city_id)
+INNER JOIN country co ON (c.country_id = co.country_id);
+
+-- Consulta la tabla customer de la base de datos sakila.
+-- Realiza un LEFT JOIN con las tablas store y address
+-- Mostrar las columnas first_name, address, store_id
+
+SELECT c.first_name, a.address, s.store_id FROM customer c
+LEFT JOIN store s ON (c.store_id = s.store_id)
+LEFT JOIN address a ON (s.address_id = a.address_id);
+
+-- Consulta la tabla rental de la base de datos sakila.
+-- Realiza un INNER JOIN con la tabla staff
+-- Mostrar las columnas rental_id, first_name
+
+SELECT r.rental_id, s.first_name FROM rental r
+INNER JOIN staff s ON (r.staff_id = s.staff_id);
