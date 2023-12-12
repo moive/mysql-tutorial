@@ -168,3 +168,9 @@ SELECT MAX(amount) FROM payment;
 
 -- Get MIN amount
 SELECT MIN(amount) FROM payment;
+
+-- count with rental_id db rental
+SELECT COUNT(rental_id) FROM rental;
+
+-- Max amount value
+SELECT MAX(amount) FROM payment
