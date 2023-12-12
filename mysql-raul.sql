@@ -148,3 +148,23 @@ LEFT JOIN address a ON (s.address_id = a.address_id);
 
 SELECT r.rental_id, s.first_name FROM rental r
 INNER JOIN staff s ON (r.staff_id = s.staff_id);
+
+-- Plus values amount
+SELECT SUM(amount) FROM payment;
+
+-- Plus multiples columns
+SELECT inventory_id + film_id + store_id FROM inventory LIMIT 30;
+
+-- Counter row db actor
+SELECT COUNT(*) FROM actor; -- 200
+SELECT COUNT(*) FROM category; -- 16
+
+-- Get AVG
+SELECT AVG(amount) FROM payment LIMIT 30;
+SELECT AVG(rental_rate) FROM film LIMIT 30;
+
+-- Get Max amount
+SELECT MAX(amount) FROM payment;
+
+-- Get MIN amount
+SELECT MIN(amount) FROM payment;
