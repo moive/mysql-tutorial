@@ -174,3 +174,14 @@ SELECT COUNT(rental_id) FROM rental;
 
 -- Max amount value
 SELECT MAX(amount) FROM payment
+
+-- Grouper by
+SELECT last_name, COUNT(*) FROM actor GROUP BY last_name LIMIT 30;
+
+SELECT c.customer_id, c.first_name, c.last_name, SUM(p.amount) 
+FROM payment p INNER 
+JOIN customer c ON (c.customer_id = p.customer_id) 
+GROUP BY c.customer_id, first_name, c.last_name;
+
+-- exercise group by
+SELECT customer_id, MAX(rental_date) FROM rental GROUP BY customer_id;
