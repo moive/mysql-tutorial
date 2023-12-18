@@ -185,3 +185,10 @@ GROUP BY c.customer_id, first_name, c.last_name;
 
 -- exercise group by
 SELECT customer_id, MAX(rental_date) FROM rental GROUP BY customer_id;
+
+-- use sentence HAVING
+SELECT last_name, COUNT(*) FROM actor GROUP BY 1 HAVING COUNT(*)>3;
+
+SELECT c.customer_id, c.last_name, c.first_name, SUM(p.amount) FROM payment p INNER JOIN customer c ON (p.customer_id = c.customer_id) GROUP BY 1,2,3 HAVING SUM(p.amount)<60 ORDER BY SUM(p.amount) DESC;
+
+SELECT last_name, COUNT(last_name) FROM actor GROUP BY 1 HAVING COUNT(last_name)>2;
